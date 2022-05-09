@@ -1,0 +1,60 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>
+            N
+        </th>
+        <th>
+            firstName
+        </th>
+        <th>
+            lastName
+        </th>
+        <th>
+Email      
+  </th>
+  <th>
+    Title      
+      </th>
+      <th>
+        title      
+          </th>
+        <th>
+            Date
+        </th>
+        <th>Delete</th>
+    </tr>
+</thead>
+    <tbody>
+
+        <tr *ngFor="let t of listRec;let position=index;" >
+            <td>{{position+1}}
+            </td>
+            <td>{{user.firstName}}
+            </td>
+            <td>{{user.lastName}}
+            </td>
+            <td>{{user.email}}
+            </td>
+            <td>{{t.text}}
+            </td>
+            <td>{{t.title}}
+            </td>  
+             <td>{{t.created_at}}
+            </td>
+            <td>
+                <button class="btn btn-outline-danger" (click)="deleteReclamation(t.id,position)">Delete</button>
+            </td>
+         
+        </tbody>
+    </table>
+          
+               
+            
+
+   
+
+<div class="row justify-content-center" style="margin-top: 10%;">
+
+
+</div>

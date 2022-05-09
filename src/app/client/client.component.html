@@ -1,0 +1,67 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>
+            N
+        </th>
+        <th>
+            firstName
+        </th>
+        <th>
+            lastName
+        </th>
+        <th>
+Email      
+  </th>
+  <th>
+    address      
+      </th>
+      <th>
+        postalCode      
+          </th>
+        <th>
+            phoneNumber
+        </th>  
+          <th>Disable</th>
+        <th>Delete</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let t of user;let position=index;" >
+            <td>{{position+1}}
+            </td>
+            <td>{{t.firstName}}
+            </td>
+            <td>{{t.lastName}}
+            </td>
+            <td>{{t.email}}
+            </td>
+            <td>{{t.address}}
+            </td>
+            <td>{{t.postalCode}}
+            </td>  
+             <td>{{t.phoneNumber}}
+     
+            <td >
+                {{t.isDesactivate}}
+            </td>
+            <td>
+                <button class="btn btn-outline-danger" (click)="deleteUser(t.id)">Delete</button>
+            </td>
+           
+        </tr>
+    </tbody>
+  </table>
+           
+          
+               
+            
+
+   
+
+<div class="row justify-content-center" style="margin-top: 10%;">
+
+
+</div>

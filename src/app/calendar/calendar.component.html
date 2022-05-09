@@ -1,0 +1,68 @@
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
+                Previous
+            </div>
+            <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+            </div>
+            <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
+                Next
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+                Month
+            </div>
+            <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+                Week
+            </div>
+            <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+                Day
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div [ngSwitch]="view">
+
+    <mwl-calendar-month-view (dayClicked)="dayClicked($event.day)" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-month-view>
+
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-week-view>
+
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events">
+    </mwl-calendar-day-view>
+
+</div>
+    
+    <section> 
+        
+        <div class="md-2"><button class="btn btn-sm btn-success" [routerLink]="['/add-meeting']">Plan a new meeting</button></div>
+
+        <button class="profile_button px-5"  (click)="open(mymodal1)">Add Claim</button>
+
+<div >
+        <ng-template [disabled]="form"  #mymodal1 let-modal1>
+                <form class="center" [formGroup]="myForm" (submit)="add()">
+                    <div class="row" class="col-md-6">
+                        <input type="text" placeholder="Description ..." formControlName="title" required>
+                    </div>
+                
+                    <div class="row" class="col-md-6">
+                        <input type="text" placeholder="Title" formControlName="text"required >
+                    </div>
+                  
+                    <br>
+                    <button type="submit" class="btn btn-success" >Add</button>
+                    <button type="button" (click)="cancel()" class="btn btn-info" >Cancel</button>
+                </form>
+        </ng-template></div>
+    </section>

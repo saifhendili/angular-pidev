@@ -1,0 +1,25 @@
+<form>
+  <!-- date input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example1">Select meeting date</label>
+    <input type="date" (change)="SendDataonChange($event)" [(ngModel)]="meeting.date" id="form2Example1"
+      class="form-control" />
+
+  </div>
+  <!-- time input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example1">Select meeting time</label>
+    <input type="time" id="exampleInput" (change)="changeTime($event)" name="input" placeholder="HH:mm:ss" />
+
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example2">message</label>
+    <input type="text" id="form2Example2" class="form-control" [(ngModel)]="meeting.message" />
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4" (click)="saveMeeting()">Save</button>
+
+</form>

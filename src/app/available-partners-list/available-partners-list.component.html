@@ -1,0 +1,22 @@
+<h3>Our Partners :</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Note</th>
+        <th scope="col">Type</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr *ngFor="let p of partners">
+        <td>{{p.name}}</td>
+        <td>{{p.email}}</td>
+        <td>{{p.note}}</td>
+        <td>{{p.type}}</td>
+        <td><button class="btn btn-sm btn-success" (click)="updateMeeting(p)">Choose</button></td>
+      </tr>
+    </tbody>
+  </table>
